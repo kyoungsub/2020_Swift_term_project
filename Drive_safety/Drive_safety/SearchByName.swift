@@ -9,8 +9,14 @@
 import UIKit
 
 class SearchByName: UITableViewController {
-
+    
+    var filteredLocals = [siDo]()
     let searchController = UISearchController(searchResultsController: nil)
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,23 +30,46 @@ class SearchByName: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        if isFiltering() {
+            return filteredLocals.count
+        }
+        return siDoCode.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+      
+        let sido: siDo
+        if isFiltering() {
+            sido = filteredLocals[indexPath.row]
+        }
+        else {
+            sido = siDoCode[indexPath.row]
+        }
+      cell.textLabel!.text = sido.name
+      return cell
     }
     
     //검색창이 비어있는지 확인
     func searchBarIsEmpty() -> Bool {
         return searchController.searchBar.text?.isEmpty ?? true
     }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "ALL") {
+        filteredLocals = siDoCode.filter({( sido : siDo ) -> Bool in
+            return sido.name!.contains(searchText)
+        })
+        
+        tableView.reloadData()
+    }
 }
 
 extension SearchByName: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        
+        filterContentForSearchText(searchController.searchBar.text!)
     }
 }
