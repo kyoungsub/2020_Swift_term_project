@@ -13,6 +13,7 @@
 		3400D1A0248CE6A9009B2654 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3400D19E248CE6A9009B2654 /* Main.storyboard */; };
 		3400D1A2248CE6AA009B2654 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3400D1A1248CE6AA009B2654 /* Assets.xcassets */; };
 		3400D1A5248CE6AA009B2654 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3400D1A3248CE6AA009B2654 /* LaunchScreen.storyboard */; };
+		3400D1B12490C7BD009B2654 /* SchoolAccidentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3400D1B02490C7BD009B2654 /* SchoolAccidentTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3400D1A1248CE6AA009B2654 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3400D1A4248CE6AA009B2654 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3400D1A6248CE6AA009B2654 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3400D1B02490C7BD009B2654 /* SchoolAccidentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolAccidentTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				3400D1A1248CE6AA009B2654 /* Assets.xcassets */,
 				3400D1A3248CE6AA009B2654 /* LaunchScreen.storyboard */,
 				3400D1A6248CE6AA009B2654 /* Info.plist */,
+				3400D1B02490C7BD009B2654 /* SchoolAccidentTableViewController.swift */,
 			);
 			path = Drive_safety;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3400D1B12490C7BD009B2654 /* SchoolAccidentTableViewController.swift in Sources */,
 				3400D19D248CE6A9009B2654 /* ViewController.swift in Sources */,
 				3400D199248CE6A9009B2654 /* AppDelegate.swift in Sources */,
 				3400D19B248CE6A9009B2654 /* SceneDelegate.swift in Sources */,
