@@ -2,14 +2,19 @@
 //  SchoolAccidentTableViewController.swift
 //  Drive_safety
 //
-//  Created by Game on 2020/06/10.
+//  Created by Game on 2020/06/11.
 //  Copyright © 2020 Game. All rights reserved.
 //
 
 import UIKit
 
 class SchoolAccidentTableViewController: UITableViewController {
-
+    @IBOutlet var resultTableView: UITableView!
+    
+    var url : String?
+    var parser = XMLParser()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
