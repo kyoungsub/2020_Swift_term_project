@@ -14,9 +14,25 @@ class SearchByName: UITableViewController {
     let searchController = UISearchController(searchResultsController: nil)
     
     var select_code:Int = 0
-    
+    @IBAction func cancelToSearchByNameViewController(segue: UIStoryboardSegue){
+        
+    }
     func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToSearchByGuGun" {
+            if let cell = sender as? UITableViewCell {
+                let indexPath = tableView.indexPath(for: cell)
+                
+                select_code = filteredLocals[(indexPath?.row)!].code
+                
+                if let SearchByguGun = segue.destination as? SearchByguGun{
+                    SearchByguGun.siDo_code = select_code
+                }
+            }
+        }
     }
     
     override func viewDidLoad() {
