@@ -179,6 +179,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="kKu-FW-aLc" kind="show" id="eQ5-YI-E82"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -222,6 +225,7 @@
                             <outlet property="delegate" destination="kKu-FW-aLc" id="QQC-Hp-Khk"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="rgF-Eh-2LL"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tu2-SI-Gji" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -13,6 +13,8 @@ class SearchByName: UITableViewController {
     var filteredLocals = [siDo]()
     let searchController = UISearchController(searchResultsController: nil)
     
+    var select_code:Int = 0
+    
     func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
     }
