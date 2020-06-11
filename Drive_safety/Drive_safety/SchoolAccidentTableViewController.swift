@@ -17,11 +17,14 @@ class SchoolAccidentTableViewController: UITableViewController, XMLParserDelegat
     
     var elements = NSMutableDictionary()
     var element = NSString()
-    
+
+    var spot_cd = NSMutableString()
     var spot_nm = NSMutableString()
     
     var XPos = NSMutableString()
     var YPos = NSMutableString()
+
+    var selected_spot : String?
     
     func beginParsing()
     {
@@ -39,6 +42,8 @@ class SchoolAccidentTableViewController: UITableViewController, XMLParserDelegat
         {
             elements = NSMutableDictionary()
             elements = [:]
+            spot_cd = NSMutableString()
+            spot_cd = ""
             spot_nm = NSMutableString()
             spot_nm = ""
             
@@ -54,6 +59,9 @@ class SchoolAccidentTableViewController: UITableViewController, XMLParserDelegat
         if element.isEqual(to: "spot_nm") {
             spot_nm.append(string)
         }
+        else if element.isEqual(to: "spot_cd"){
+            spot_cd.append(string)
+        }
         else if element.isEqual(to: "lo_crd") {
             XPos.append(string)
         }
@@ -67,6 +75,9 @@ class SchoolAccidentTableViewController: UITableViewController, XMLParserDelegat
         if (elementName as NSString).isEqual(to: "item") {
             if !spot_nm.isEqual(nil) {
                 elements.setObject(spot_nm, forKey: "spot_nm" as NSCopying)
+            }
+            if !spot_cd.isEqual(nil){
+                elements.setObject(spot_cd, forKey: "spot_cd" as NSCopying)
             }
             if !XPos.isEqual(nil) {
                 elements.setObject(XPos, forKey: "lo_crd" as NSCopying)
@@ -85,7 +96,22 @@ class SchoolAccidentTableViewController: UITableViewController, XMLParserDelegat
     }
 
     // MARK: - Table view data source
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToDetailResult" {
+            if let cell = sender as? UITableViewCell {
+                let indexPath = tableView.indexPath(for: cell)
+                
+                selected_spot = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "spot_cd") as! NSString as String
+                
+                if let detailAccidentTableViewController = segue.destination as? DetailAccidentTableViewController{
+                    detailAccidentTableViewController.spotcode = selected_spot
+                    detailAccidentTableViewController.url = url!
+                }
+            }
+        }
+    }
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
