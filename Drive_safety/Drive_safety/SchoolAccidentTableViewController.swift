@@ -18,8 +18,7 @@ class SchoolAccidentTableViewController: UITableViewController, XMLParserDelegat
     var elements = NSMutableDictionary()
     var element = NSString()
     
-    var sido_sgg_nm = NSMutableString()
-    var occrrnc_cnt = NSMutableString()
+    var spot_nm = NSMutableString()
     
     var XPos = NSMutableString()
     var YPos = NSMutableString()
@@ -36,14 +35,12 @@ class SchoolAccidentTableViewController: UITableViewController, XMLParserDelegat
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String])
     {
         element = elementName as NSString
-        if (elementName as NSString).isEqual(to: "frequentzone")
+        if (elementName as NSString).isEqual(to: "item")
         {
             elements = NSMutableDictionary()
             elements = [:]
-            sido_sgg_nm = NSMutableString()
-            sido_sgg_nm = ""
-            occrrnc_cnt = NSMutableString()
-            occrrnc_cnt = ""
+            spot_nm = NSMutableString()
+            spot_nm = ""
             
             XPos = NSMutableString()
             XPos = ""
@@ -54,11 +51,8 @@ class SchoolAccidentTableViewController: UITableViewController, XMLParserDelegat
     
     func parser(_ parser: XMLParser, foundCharacters string: String)
     {
-        if element.isEqual(to: "sido_sgg_nm") {
-            sido_sgg_nm.append(string)
-        }
-        else if element.isEqual(to: "occrrnc_cnt") {
-            occrrnc_cnt.append(string)
+        if element.isEqual(to: "spot_nm") {
+            spot_nm.append(string)
         }
         else if element.isEqual(to: "lo_crd") {
             XPos.append(string)
@@ -70,12 +64,9 @@ class SchoolAccidentTableViewController: UITableViewController, XMLParserDelegat
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?)
     {
-        if (elementName as NSString).isEqual(to: "frequentzone") {
-            if !sido_sgg_nm.isEqual(nil) {
-                elements.setObject(sido_sgg_nm, forKey: "sido_sgg_nm" as NSCopying)
-            }
-            if !occrrnc_cnt.isEqual(nil) {
-                elements.setObject(occrrnc_cnt, forKey: "occrrnc_cnt" as NSCopying)
+        if (elementName as NSString).isEqual(to: "item") {
+            if !spot_nm.isEqual(nil) {
+                elements.setObject(spot_nm, forKey: "spot_nm" as NSCopying)
             }
             if !XPos.isEqual(nil) {
                 elements.setObject(XPos, forKey: "lo_crd" as NSCopying)
@@ -109,8 +100,7 @@ class SchoolAccidentTableViewController: UITableViewController, XMLParserDelegat
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath)
 
-        cell.textLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey:"sido_sgg_nm") as! NSString as String
-        cell.detailTextLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey:"occrrnc_cnt")as! NSString as String
+        cell.textLabel?.text = (posts.object(at: indexPath.row) as AnyObject).value(forKey:"spot_nm") as! NSString as String
         return cell
     }
     
