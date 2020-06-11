@@ -24,8 +24,6 @@ class SearchByguGun: UITableViewController{
             guGuns = guGun_11
         } else if siDo_code == 26{
             guGuns = guGun_26
-        } else if siDo_code == 26{
-                guGuns = guGun_26
         } else if siDo_code == 27{
             guGuns = guGun_27
         } else if siDo_code == 28{
@@ -62,13 +60,13 @@ class SearchByguGun: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadguGunCode()
+        
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Insert Local Name"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        
-        loadguGunCode()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

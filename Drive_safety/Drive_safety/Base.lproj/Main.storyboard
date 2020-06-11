@@ -200,7 +200,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="veC-j1-ikk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="LVN-8G-8Oe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3421.739130434783" y="-664.28571428571422"/>
+            <point key="canvasLocation" x="3422" y="-664"/>
         </scene>
         <!--Search Bygu Gun-->
         <scene sceneID="m2K-f8-zrk">
@@ -227,6 +227,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="9nf-3x-cXA" kind="show" identifier="segueToResult" id="CpP-b2-ebO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -238,7 +241,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tu2-SI-Gji" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4348" y="-664"/>
+            <point key="canvasLocation" x="4288" y="-664"/>
         </scene>
         <!--Search-->
         <scene sceneID="3Ry-Uw-OLQ">
@@ -401,7 +404,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AK0-78-DDI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5177" y="82"/>
+            <point key="canvasLocation" x="5354" y="-307"/>
         </scene>
         <!--Detail Accident Table View Controller-->
         <scene sceneID="upd-2I-llr">
@@ -449,7 +452,10 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YoR-zQ-hFN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6099" y="82"/>
+            <point key="canvasLocation" x="6216" y="-307"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="CpP-b2-ebO"/>
+    </inferredMetricsTieBreakers>
 </document>
