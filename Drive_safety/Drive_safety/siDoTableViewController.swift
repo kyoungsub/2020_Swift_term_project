@@ -13,10 +13,7 @@ class siDoTableViewController: UITableViewController {
     var siDos:[siDo] = siDoCode
     
     var select_code:Int = 0
-    
-    @IBAction func cancelToTagSearchViewController(segue: UIStoryboardSegue){
-        
-    }
+    var year: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +34,7 @@ class siDoTableViewController: UITableViewController {
                 
                 if let guGunTableViewController = segue.destination as? guGunTableViewController{
                     guGunTableViewController.siDo_code = select_code
+                    guGunTableViewController.year = year
                 }
             }
         }

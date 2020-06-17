@@ -13,6 +13,7 @@ class SearchByName: UITableViewController {
     var filteredLocals = [siDo]()
     let searchController = UISearchController(searchResultsController: nil)
     
+    var year: String = ""
     var select_code:Int = 0
     @IBAction func cancelToSearchByNameViewController(segue: UIStoryboardSegue){
         
@@ -26,10 +27,15 @@ class SearchByName: UITableViewController {
             if let cell = sender as? UITableViewCell {
                 let indexPath = tableView.indexPath(for: cell)
                 
-                select_code = filteredLocals[(indexPath?.row)!].code
-                
+                if isFiltering() {
+                    select_code = filteredLocals[(indexPath?.row)!].code
+                }
+                else {
+                    select_code = siDoCode[(indexPath?.row)!].code
+                }
                 if let SearchByguGun = segue.destination as? SearchByguGun{
                     SearchByguGun.siDo_code = select_code
+                    SearchByguGun.year = year
                 }
             }
         }

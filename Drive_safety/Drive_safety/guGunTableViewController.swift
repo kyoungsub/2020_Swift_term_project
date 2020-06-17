@@ -13,6 +13,7 @@ class guGunTableViewController: UITableViewController {
     var guGuns = [guGun]()
     var siDo_code:Int = 0
     var guGun_code:Int = 0
+    var year: String = ""
     
     func loadguGunCode(){
         if siDo_code == 11{
@@ -74,7 +75,7 @@ class guGunTableViewController: UITableViewController {
                 
                 if let schoolAccidentTableViewController = segue.destination as? SchoolAccidentTableViewController{
                     schoolAccidentTableViewController.url =
-                    "http://apis.data.go.kr/B552061/schoolzoneChild/getRestSchoolzoneChild?ServiceKey=Np4caedw1ZqP0urt6ekEv%2FkQnj4wQjHEEILFFnBA1i%2Fcv4c9m1KJDwwBpz6qYTT8B%2B0kzlcWMGrUmz1GiGELEg%3D%3D&searchYearCd=2017&siDo=" + String(siDo_code) + "&guGun=" + String(guGun_code) + "&type=xml&numOfRows=15&pageNo=1"
+                    "http://apis.data.go.kr/B552061/schoolzoneChild/getRestSchoolzoneChild?ServiceKey=Np4caedw1ZqP0urt6ekEv%2FkQnj4wQjHEEILFFnBA1i%2Fcv4c9m1KJDwwBpz6qYTT8B%2B0kzlcWMGrUmz1GiGELEg%3D%3D&searchYearCd=\(year)&siDo=" + String(siDo_code) + "&guGun=" + String(guGun_code) + "&type=xml&numOfRows=15&pageNo=1"
                 }
             }
         }

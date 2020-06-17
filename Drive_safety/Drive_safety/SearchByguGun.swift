@@ -13,11 +13,12 @@ class SearchByguGun: UITableViewController{
     var filteredLocals = [guGun]()
     var siDo_code:Int = 0
     var guGun_code:Int = 0
-    let searchController = UISearchController(searchResultsController: nil)
-    
+    var year: String = ""
+    //let searchController = UISearchController(searchResultsController: nil)
+    /*
     func isFiltering() -> Bool {
         return searchController.isActive && !searchBarIsEmpty()
-    }
+    }*/
     
     func loadguGunCode(){
         if siDo_code == 11{
@@ -61,11 +62,12 @@ class SearchByguGun: UITableViewController{
         super.viewDidLoad()
         
         loadguGunCode()
-        
+        /*
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Insert Local Name"
         navigationItem.searchController = searchController
+        */
         definesPresentationContext = true
     }
     
@@ -77,7 +79,7 @@ class SearchByguGun: UITableViewController{
                 
                 if let schoolAccidentTableViewController = segue.destination as? SchoolAccidentTableViewController{
                     schoolAccidentTableViewController.url =
-                    "http://apis.data.go.kr/B552061/schoolzoneChild/getRestSchoolzoneChild?ServiceKey=Np4caedw1ZqP0urt6ekEv%2FkQnj4wQjHEEILFFnBA1i%2Fcv4c9m1KJDwwBpz6qYTT8B%2B0kzlcWMGrUmz1GiGELEg%3D%3D&searchYearCd=2017&siDo=" + String(siDo_code) + "&guGun=" + String(guGun_code) + "&type=xml&numOfRows=15&pageNo=1"
+                    "http://apis.data.go.kr/B552061/schoolzoneChild/getRestSchoolzoneChild?ServiceKey=Np4caedw1ZqP0urt6ekEv%2FkQnj4wQjHEEILFFnBA1i%2Fcv4c9m1KJDwwBpz6qYTT8B%2B0kzlcWMGrUmz1GiGELEg%3D%3D&searchYearCd=\(year)&siDo=" + String(siDo_code) + "&guGun=" + String(guGun_code) + "&type=xml&numOfRows=15&pageNo=1"
                 }
             }
         }
@@ -90,9 +92,10 @@ class SearchByguGun: UITableViewController{
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        /*
         if isFiltering() {
             return filteredLocals.count
-        }
+        }*/
         return guGuns.count
     }
 
@@ -100,20 +103,24 @@ class SearchByguGun: UITableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "SBNguGunCell", for: indexPath)
 
         let guGun: guGun
+        /*
           if isFiltering() {
               guGun = filteredLocals[indexPath.row]
           }
           else {
               guGun = guGuns[indexPath.row]
           }
+        */
+        guGun = guGuns[indexPath.row]
         cell.textLabel!.text = guGun.name
         return cell
     }
-    
+    /*
     func searchBarIsEmpty() -> Bool {
         return searchController.searchBar.text?.isEmpty ?? true
     }
-    
+    */
+    /*
     func filterContentForSearchText(_ searchText: String, scope: String = "ALL") {
         filteredLocals = guGuns.filter({( guGun : guGun ) -> Bool in
             return guGun.name!.contains(searchText)
@@ -121,10 +128,12 @@ class SearchByguGun: UITableViewController{
         
         tableView.reloadData()
     }
+    */
 }
-
+/*
 extension SearchByguGun: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
     }
 }
+*/

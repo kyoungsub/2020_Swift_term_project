@@ -121,34 +121,72 @@
         <!--View Controller-->
         <scene sceneID="Skk-xS-Oeb">
             <objects>
-                <viewController id="rHE-z9-uFF" sceneMemberID="viewController">
+                <viewController id="rHE-z9-uFF" customClass="ViewController" customModule="Drive_safety" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sPS-5k-A61">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3T-gO-Czb">
-                                <rect key="frame" x="98" y="229" width="219" height="115"/>
+                                <rect key="frame" x="98" y="203" width="219" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="이름으로 검색"/>
                                 <connections>
-                                    <segue destination="Unu-pC-c8j" kind="show" identifier="segueToNameSearch" id="gd6-Mu-IwG"/>
+                                    <segue destination="Unu-pC-c8j" kind="show" identifier="segueToNameSearch" id="1Qz-VG-zrc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUc-Gq-sm1">
-                                <rect key="frame" x="98" y="502" width="219" height="115"/>
+                                <rect key="frame" x="98" y="530" width="219" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <state key="normal" title="시군구로 검색"/>
                                 <connections>
-                                    <segue destination="KfT-2P-E4J" kind="show" identifier="segueToTagSearch" id="0sZ-r3-o35"/>
+                                    <segue destination="KfT-2P-E4J" kind="show" identifier="segueToDirectSearch" id="HVa-2J-MC6"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k0w-Hs-NEI">
+                                <rect key="frame" x="0.0" y="316" width="414" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="sPS-5k-A61" id="xpt-YM-Rvk"/>
+                                    <outlet property="delegate" destination="sPS-5k-A61" id="sa6-ed-gJt"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAr-7C-qwd">
+                                <rect key="frame" x="82" y="717" width="78" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="음성인식시작"/>
+                                <connections>
+                                    <action selector="startTranscribing:" destination="rHE-z9-uFF" eventType="touchUpInside" id="pMW-Df-uGj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAk-hD-jcd">
+                                <rect key="frame" x="262" y="717" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="음성인식끝"/>
+                                <connections>
+                                    <action selector="stopTranscribing:" destination="rHE-z9-uFF" eventType="touchUpInside" id="1Vb-hI-UzB"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lv7-wf-UYb">
+                                <rect key="frame" x="87" y="755" width="240" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="vz8-EA-xHu"/>
                     </view>
                     <navigationItem key="navigationItem" id="oIF-9S-pbb"/>
+                    <connections>
+                        <outlet property="pickerView" destination="k0w-Hs-NEI" id="Rc6-6m-VGR"/>
+                        <outlet property="stopButton" destination="OAk-hD-jcd" id="oEw-ZH-N9h"/>
+                        <outlet property="textView" destination="lv7-wf-UYb" id="QAB-Nx-iWx"/>
+                        <outlet property="transcribeButton" destination="rAr-7C-qwd" id="YUf-EL-9xI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UJU-MZ-0bV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -291,7 +329,7 @@
                     <navigationItem key="navigationItem" id="UpB-Pr-uBL">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="2zR-cD-wgP">
                             <connections>
-                                <segue destination="ce6-Gw-xeG" kind="unwind" unwindAction="cancelToTagSearchViewControllerWithSegue:" id="0yU-c2-tdd"/>
+                                <segue destination="ce6-Gw-xeG" kind="unwind" unwindAction="doneToSearchViewControllerWithSegue:" id="6Tb-dl-Z1X"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -456,6 +494,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="CpP-b2-ebO"/>
+        <segue reference="Lj4-M4-X7l"/>
     </inferredMetricsTieBreakers>
 </document>
