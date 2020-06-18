@@ -19,6 +19,8 @@
 		3400D1BD249237D2009B2654 /* guGunTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3400D1BC249237D2009B2654 /* guGunTableViewController.swift */; };
 		3400D1BF24924222009B2654 /* SchoolAccidentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3400D1BE24924222009B2654 /* SchoolAccidentTableViewController.swift */; };
 		3400D1C124925F3E009B2654 /* DetailAccidentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3400D1C024925F3E009B2654 /* DetailAccidentTableViewController.swift */; };
+		346E5562249B283500F5E98C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E5561249B283500F5E98C /* MapViewController.swift */; };
+		346E5564249B296B00F5E98C /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E5563249B296B00F5E98C /* Spot.swift */; };
 		A11A1A9E24926DB200BD8A3C /* SearchByguGun.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11A1A9D24926DB200BD8A3C /* SearchByguGun.swift */; };
 		A1EA17672490CDA20009F855 /* SearchByName.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EA17662490CDA20009F855 /* SearchByName.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,8 @@
 		3400D1BC249237D2009B2654 /* guGunTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = guGunTableViewController.swift; sourceTree = "<group>"; };
 		3400D1BE24924222009B2654 /* SchoolAccidentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolAccidentTableViewController.swift; sourceTree = "<group>"; };
 		3400D1C024925F3E009B2654 /* DetailAccidentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAccidentTableViewController.swift; sourceTree = "<group>"; };
+		346E5561249B283500F5E98C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		346E5563249B296B00F5E98C /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		A11A1A9D24926DB200BD8A3C /* SearchByguGun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByguGun.swift; sourceTree = "<group>"; };
 		A1EA17662490CDA20009F855 /* SearchByName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +91,8 @@
 				3400D1BC249237D2009B2654 /* guGunTableViewController.swift */,
 				3400D1BE24924222009B2654 /* SchoolAccidentTableViewController.swift */,
 				3400D1C024925F3E009B2654 /* DetailAccidentTableViewController.swift */,
+				346E5561249B283500F5E98C /* MapViewController.swift */,
+				346E5563249B296B00F5E98C /* Spot.swift */,
 			);
 			path = Drive_safety;
 			sourceTree = "<group>";
@@ -169,8 +175,10 @@
 				3400D1B72490DFDE009B2654 /* guGunCode.swift in Sources */,
 				3400D19D248CE6A9009B2654 /* ViewController.swift in Sources */,
 				3400D199248CE6A9009B2654 /* AppDelegate.swift in Sources */,
+				346E5562249B283500F5E98C /* MapViewController.swift in Sources */,
 				3400D1B92490DFFD009B2654 /* siDoCode.swift in Sources */,
 				3400D1BB24923416009B2654 /* siDoTableViewController.swift in Sources */,
+				346E5564249B296B00F5E98C /* Spot.swift in Sources */,
 				3400D19B248CE6A9009B2654 /* SceneDelegate.swift in Sources */,
 				3400D1C124925F3E009B2654 /* DetailAccidentTableViewController.swift in Sources */,
 			);

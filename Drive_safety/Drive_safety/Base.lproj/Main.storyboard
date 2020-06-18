@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="7sD-eA-P33">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookmarkCell" id="7sD-eA-P33">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7sD-eA-P33" id="b9t-xP-jEN">
@@ -36,51 +36,6 @@
             </objects>
             <point key="canvasLocation" x="1490" y="380"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="ar5-ph-7u4">
-            <objects>
-                <viewController id="6MH-hU-TDD" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pg8-d3-67n">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="사고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbB-Gs-ZaI">
-                                <rect key="frame" x="186" y="385" width="30" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="sEQ-bi-JrR"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dF9-2M-umT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8488.4057971014499" y="105.80357142857143"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="6Sk-d1-dcG">
-            <objects>
-                <viewController id="4AX-eR-qp5" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zjy-YG-uRm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9nM-bm-MCL">
-                                <rect key="frame" x="59" y="296" width="297" height="411"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="jGP-YG-gxp"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xfs-x6-1st" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7142" y="-664"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="n4d-WY-GFv">
             <objects>
@@ -99,11 +54,11 @@
             </objects>
             <point key="canvasLocation" x="-338" y="34"/>
         </scene>
-        <!--Bookmarks-->
+        <!--Navigation Controller-->
         <scene sceneID="qeX-M8-Gnq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ec4-Uz-zAu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Bookmarks" id="eCj-6S-nxk"/>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="eCj-6S-nxk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DUH-2C-7yg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -126,11 +81,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IOS_Background" translatesAutoresizingMaskIntoConstraints="NO" id="rsc-Fb-I1b">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3T-gO-Czb">
                                 <rect key="frame" x="98" y="203" width="219" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <state key="normal" title="이름으로 검색"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <state key="normal" title="이름으로 검색">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <segue destination="Unu-pC-c8j" kind="show" identifier="segueToNameSearch" id="1Qz-VG-zrc"/>
                                 </connections>
@@ -138,8 +99,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUc-Gq-sm1">
                                 <rect key="frame" x="98" y="530" width="219" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <state key="normal" title="시군구로 검색"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <state key="normal" title="시군구로 검색">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <segue destination="KfT-2P-E4J" kind="show" identifier="segueToDirectSearch" id="HVa-2J-MC6"/>
                                 </connections>
@@ -155,15 +118,21 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAr-7C-qwd">
                                 <rect key="frame" x="82" y="717" width="78" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="음성인식시작"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="음성인식시작">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="startTranscribing:" destination="rHE-z9-uFF" eventType="touchUpInside" id="pMW-Df-uGj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAk-hD-jcd">
-                                <rect key="frame" x="262" y="717" width="65" height="30"/>
+                                <rect key="frame" x="263" y="717" width="65" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="음성인식끝"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="음성인식끝">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="stopTranscribing:" destination="rHE-z9-uFF" eventType="touchUpInside" id="1Vb-hI-UzB"/>
                                 </connections>
@@ -281,11 +250,11 @@
             </objects>
             <point key="canvasLocation" x="4288" y="-664"/>
         </scene>
-        <!--Search-->
+        <!--Navigation Controller-->
         <scene sceneID="3Ry-Uw-OLQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MnP-pD-4gy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="1kl-r3-5G3"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="1kl-r3-5G3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UeD-RW-uhX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -435,7 +404,13 @@
                             <outlet property="delegate" destination="9nf-3x-cXA" id="wXX-iu-F9p"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="cNh-HR-Agf"/>
+                    <navigationItem key="navigationItem" id="cNh-HR-Agf">
+                        <barButtonItem key="rightBarButtonItem" title="지도로 보기" id="hc5-WL-Jty">
+                            <connections>
+                                <segue destination="fw3-eM-kvl" kind="show" identifier="segueToMapView" id="Nqp-Ce-GC0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="resultTableView" destination="1Lx-sd-cRi" id="ynO-XK-bgb"/>
                     </connections>
@@ -443,6 +418,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AK0-78-DDI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5354" y="-307"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="1xl-x4-kg8">
+            <objects>
+                <viewController id="fw3-eM-kvl" customClass="MapViewController" customModule="Drive_safety" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kSn-9p-N2u">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ONl-Iz-EvP">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="oVr-2r-rWv"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="E5T-mT-Iwe"/>
+                    <connections>
+                        <outlet property="mapView" destination="ONl-Iz-EvP" id="mIa-eV-Fsv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ci-1k-w6x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6253.6231884057979" y="48.883928571428569"/>
         </scene>
         <!--Detail Accident Table View Controller-->
         <scene sceneID="upd-2I-llr">
@@ -490,10 +490,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YoR-zQ-hFN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6216" y="-307"/>
+            <point key="canvasLocation" x="6255" y="-664"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Lj4-M4-X7l"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="IOS_Background" width="414" height="725"/>
+    </resources>
 </document>

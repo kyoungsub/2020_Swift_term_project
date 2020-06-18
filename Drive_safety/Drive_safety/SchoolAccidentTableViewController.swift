@@ -108,6 +108,10 @@ class SchoolAccidentTableViewController: UITableViewController, XMLParserDelegat
                     detailAccidentTableViewController.url = url!
                 }
             }
+        } else if segue.identifier == "segueToMapView" {
+            if let mapViewController = segue.destination as? MapViewController {
+                mapViewController.posts = posts
+            }
         }
     }
     
