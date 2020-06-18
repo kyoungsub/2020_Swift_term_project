@@ -12,6 +12,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     var posts = NSMutableArray()
+    var initla_ord: Double = 0
+    var initlo_ord: Double = 0
     
     let regionRadius: CLLocationDistance = 5000
     
@@ -32,6 +34,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let lat = (YPos as NSString).doubleValue
             let lon = (XPos as NSString).doubleValue
             let spot = Spot(title: spot_nm, coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
+            initla_ord = lat
+            initlo_ord = lon
             spots.append(spot)
         }
     }
@@ -64,12 +68,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let initialLocation = CLLocation(latitude: 37.5384514, longitude: 127.0709764)
+        loadInitialData()
+        
+        let initialLocation = CLLocation(latitude: initla_ord, longitude: initlo_ord)
         
         centerMapOnLocation(location: initialLocation)
         
         mapView.delegate = self
-        loadInitialData()
         mapView.addAnnotations(spots)
     }
     
