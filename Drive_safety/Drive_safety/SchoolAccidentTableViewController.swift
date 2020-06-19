@@ -21,6 +21,13 @@ class SchoolAccidentTableViewController: UITableViewController, XMLParserDelegat
     var spot_cd = NSMutableString()
     var spot_nm = NSMutableString()
     
+    var occrrnc_cnt = NSMutableString()
+    var caslt_cnt = NSMutableString()
+    var dth_dnv_cnt = NSMutableString()
+    var se_dnv_cnt = NSMutableString()
+    var sl_dnv_cnt = NSMutableString()
+    var wnd_dnv_cnt = NSMutableString()
+    
     var XPos = NSMutableString()
     var YPos = NSMutableString()
 
@@ -47,6 +54,19 @@ class SchoolAccidentTableViewController: UITableViewController, XMLParserDelegat
             spot_nm = NSMutableString()
             spot_nm = ""
             
+            occrrnc_cnt = NSMutableString()
+            occrrnc_cnt = ""
+            caslt_cnt = NSMutableString()
+            caslt_cnt = ""
+            dth_dnv_cnt = NSMutableString()
+            dth_dnv_cnt = ""
+            se_dnv_cnt = NSMutableString()
+            se_dnv_cnt = ""
+            sl_dnv_cnt = NSMutableString()
+            sl_dnv_cnt = ""
+            wnd_dnv_cnt = NSMutableString()
+            wnd_dnv_cnt = ""
+            
             XPos = NSMutableString()
             XPos = ""
             YPos = NSMutableString()
@@ -61,11 +81,21 @@ class SchoolAccidentTableViewController: UITableViewController, XMLParserDelegat
         }
         else if element.isEqual(to: "spot_cd"){
             spot_cd.append(string)
-        }
-        else if element.isEqual(to: "lo_crd") {
+        } else if element.isEqual(to: "occrrnc_cnt") {
+            occrrnc_cnt.append(string)
+        } else if element.isEqual(to: "caslt_cnt") {
+            caslt_cnt.append(string)
+        } else if element.isEqual(to: "dth_dnv_cnt") {
+            dth_dnv_cnt.append(string)
+        } else if element.isEqual(to: "se_dnv_cnt") {
+            se_dnv_cnt.append(string)
+        } else if element.isEqual(to: "sl_dnv_cnt") {
+            sl_dnv_cnt.append(string)
+        } else if element.isEqual(to: "wnd_dnv_cnt") {
+            wnd_dnv_cnt.append(string)
+        } else if element.isEqual(to: "lo_crd") {
             XPos.append(string)
-        }
-        else if element.isEqual(to: "la_crd") {
+        } else if element.isEqual(to: "la_crd") {
             YPos.append(string)
         }
     }
@@ -78,6 +108,24 @@ class SchoolAccidentTableViewController: UITableViewController, XMLParserDelegat
             }
             if !spot_cd.isEqual(nil){
                 elements.setObject(spot_cd, forKey: "spot_cd" as NSCopying)
+            }
+            if !occrrnc_cnt.isEqual(nil){
+                elements.setObject(occrrnc_cnt, forKey: "occrrnc_cnt" as NSCopying)
+            }
+            if !caslt_cnt.isEqual(nil){
+                elements.setObject(caslt_cnt, forKey: "caslt_cnt" as NSCopying)
+            }
+            if !dth_dnv_cnt.isEqual(nil){
+                elements.setObject(dth_dnv_cnt, forKey: "dth_dnv_cnt" as NSCopying)
+            }
+            if !se_dnv_cnt.isEqual(nil){
+                elements.setObject(se_dnv_cnt, forKey: "se_dnv_cnt" as NSCopying)
+            }
+            if !sl_dnv_cnt.isEqual(nil){
+                elements.setObject(sl_dnv_cnt, forKey: "sl_dnv_cnt" as NSCopying)
+            }
+            if !wnd_dnv_cnt.isEqual(nil){
+                elements.setObject(wnd_dnv_cnt, forKey: "wnd_dnv_cnt" as NSCopying)
             }
             if !XPos.isEqual(nil) {
                 elements.setObject(XPos, forKey: "lo_crd" as NSCopying)
@@ -101,11 +149,10 @@ class SchoolAccidentTableViewController: UITableViewController, XMLParserDelegat
             if let cell = sender as? UITableViewCell {
                 let indexPath = tableView.indexPath(for: cell)
                 
-                selected_spot = (posts.object(at: (indexPath?.row)!) as AnyObject).value(forKey: "spot_cd") as! NSString as String
-                
-                if let detailAccidentTableViewController = segue.destination as? DetailAccidentTableViewController{
-                    detailAccidentTableViewController.spotcode = selected_spot
-                    detailAccidentTableViewController.url = url!
+                if let detailAccidentTableViewController = segue.destination as? DetailAccidentTableViewController {
+                    detailAccidentTableViewController.index = (indexPath?.row)!
+                    detailAccidentTableViewController.posts = posts
+                    
                 }
             }
         } else if segue.identifier == "segueToMapView" {
