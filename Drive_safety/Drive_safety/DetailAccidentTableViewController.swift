@@ -17,8 +17,23 @@ class DetailAccidentTableViewController: UITableViewController {
     @IBAction func Add_BookMark(_ sender: Any) {
         let userDefaults = UserDefaults.standard
         let di = Detail_info(spot_nm: post[0], occrrnc_cnt: post[1], caslt_cnt: post[2], dth_dnv_cnt: post[3], se_dnv_cnt: post[4], sl_dnv_cnt: post[5], wnd_dnv_cnt: post[6])
-        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: di)
-        userDefaults.set(encodedData, forKey: "bookmark")
+        
+        let decoded = userDefaults.data(forKey: "bookmarks")
+        var decodedBookmark = NSKeyedUnarchiver.unarchiveObject(with: decoded!) as! [Detail_info]
+        
+        for bookmark in decodedBookmark {
+            if bookmark.spot_nm == post[0]{
+                unique_check = false
+                break
+            }
+        }
+        if unique_check == true{
+            decodedBookmark.append(di)
+        }
+        
+
+        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: decodedBookmark)
+        userDefaults.set(encodedData, forKey: "bookmarks")
         userDefaults.synchronize()
         
     }

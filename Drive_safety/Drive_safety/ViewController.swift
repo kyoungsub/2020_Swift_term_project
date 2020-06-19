@@ -198,6 +198,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.pickerView.delegate = self;
         self.pickerView.dataSource = self;
         // Do any additional setup after loading the view.
+        
+        let userDefaults = UserDefaults.standard
+        let decoded = userDefaults.data(forKey: "bookmarks")
+        if decoded == nil {
+            let init_bookmark:[Detail_info] = []
+            let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: init_bookmark)
+            userDefaults.set(encodedData, forKey: "bookmarks")
+            userDefaults.synchronize()
+        }
     }
 }
 

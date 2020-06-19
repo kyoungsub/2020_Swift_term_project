@@ -17,18 +17,10 @@ class BookMarkTableViewController: UITableViewController {
     
     func decodedata() {
         let userDefaults = UserDefaults.standard
-        let decoded = userDefaults.data(forKey: "bookmark")
-        let decodedBookmark = NSKeyedUnarchiver.unarchiveObject(with: decoded!) as! Detail_info
+        let decoded = userDefaults.data(forKey: "bookmarks")
+        let decodedBookmark = NSKeyedUnarchiver.unarchiveObject(with: decoded!) as! [Detail_info]
         
-        for bookmark in bookMarks {
-            if bookmark.spot_nm == decodedBookmark.spot_nm{
-                unique_check = false
-                break
-            }
-        }
-        if unique_check == true{
-            bookMarks.append(decodedBookmark)
-        }
+        bookMarks = decodedBookmark
     }
     
     override func viewWillAppear(_ animated: Bool) {
