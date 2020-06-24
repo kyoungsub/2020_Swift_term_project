@@ -93,10 +93,10 @@
             </objects>
             <point key="canvasLocation" x="2455" y="807"/>
         </scene>
-        <!--View Controller-->
+        <!--Marked Place Total Result View Controller-->
         <scene sceneID="N18-jr-eqr">
             <objects>
-                <viewController id="kXh-Gl-APU" sceneMemberID="viewController">
+                <viewController id="kXh-Gl-APU" customClass="MarkedPlaceTotalResult_ViewController" customModule="Drive_safety" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nWb-Wz-rkk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

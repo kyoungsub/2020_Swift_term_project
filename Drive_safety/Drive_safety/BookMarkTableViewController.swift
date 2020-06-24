@@ -56,6 +56,12 @@ class BookMarkTableViewController: UITableViewController {
                 }
             }
         }
+        else if segue.identifier == "segueToChart" {
+            if let markedPlaceTotalResult_ViewController = segue.destination as?
+                MarkedPlaceTotalResult_ViewController {
+                markedPlaceTotalResult_ViewController.bookMarks = bookMarks
+            }
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
