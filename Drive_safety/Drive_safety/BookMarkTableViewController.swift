@@ -14,6 +14,18 @@ class BookMarkTableViewController: UITableViewController {
     
     var bookMarks:[Detail_info] = []
     var unique_check:Bool = true
+    var arr:[String] = []
+
+    func renewBookMarkData() {
+        for i in 0..<bookMarks.count {
+            arr = (bookMarks[i].occrrnc_cnt).components(separatedBy: [" ", "\n"])
+            bookMarks[i].occrrnc_cnt = arr[0]
+            arr = (bookMarks[i].caslt_cnt).components(separatedBy: [" ", "\n"])
+            bookMarks[i].caslt_cnt = arr[0]
+            arr = (bookMarks[i].dth_dnv_cnt).components(separatedBy: [" ", "\n"])
+            bookMarks[i].dth_dnv_cnt = arr[0]
+        }
+    }
     
     func decodedata() {
         let userDefaults = UserDefaults.standard
@@ -25,6 +37,7 @@ class BookMarkTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         decodedata()
+        renewBookMarkData()
         tbData.reloadData()
     }
     

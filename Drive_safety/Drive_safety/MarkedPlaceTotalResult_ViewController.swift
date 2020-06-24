@@ -9,8 +9,71 @@
 import UIKit
 import SwiftUI
 
+struct DeadPeopleChart: View {
+    var bookMarks:[Detail_info] = []
+    
+    func toIntFromBookMarkData(Data: String) -> Double {
+        guard let tempNum = NumberFormatter().number(from: Data) else { return 0 }
+     return Double(truncating: tempNum)
+    }
+    
+    var body: some View {
+    VStack {
+        Text("사망자수")
+    HStack {
+        ForEach(0..<bookMarks.count) { index in
+        VStack {
+            Spacer()
+            Text((self.bookMarks[index]).dth_dnv_cnt)
+                .offset(y: 0)
+                .zIndex(1)
+            Rectangle()
+                .fill(Color.red)
+                .frame(width: 20, height: CGFloat(self.toIntFromBookMarkData(Data: (self.bookMarks[index]).dth_dnv_cnt)) * 100.0)
+            Text((self.bookMarks[index]).spot_nm)
+                }
+            }
+        }
+    }
+}
+}
+
+struct InjuryPeopleChart: View {
+    var bookMarks:[Detail_info] = []
+    
+    func toIntFromBookMarkData(Data: String) -> Double {
+        guard let tempNum = NumberFormatter().number(from: Data) else { return 0 }
+     return Double(truncating: tempNum)
+    }
+    
+    var body: some View {
+    VStack {
+        Text("사상자수")
+    HStack {
+        ForEach(0..<bookMarks.count) { index in
+        VStack {
+            Spacer()
+            Text((self.bookMarks[index]).caslt_cnt)
+                .offset(y: 0)
+                .zIndex(1)
+            Rectangle()
+                .fill(Color.blue)
+                .frame(width: 20, height: CGFloat(self.toIntFromBookMarkData(Data: (self.bookMarks[index]).caslt_cnt)) * 100.0)
+            Text((self.bookMarks[index]).spot_nm)
+                }
+            }
+        }
+    }
+}
+}
+
 struct AccidentOccurChart: View {
     var bookMarks:[Detail_info] = []
+    
+    func toIntFromBookMarkData(Data: String) -> Double {
+           guard let tempNum = NumberFormatter().number(from: Data) else { return 0 }
+        return Double(truncating: tempNum)
+       }
     
     var body: some View {
     VStack {
@@ -19,17 +82,13 @@ struct AccidentOccurChart: View {
         ForEach(0..<bookMarks.count) { index in
         VStack {
             Spacer()
-            Text((self.bookMarks[index]).value(forKey: "occrrnc_cnt") as! NSString as String)
-                .font(.footnote)
-                .rotationEffect(.degrees(-90))
+            Text((self.bookMarks[index]).occrrnc_cnt)
                 .offset(y: 0)
                 .zIndex(1)
             Rectangle()
                 .fill(Color.green)
-                .frame(width: 20, height: 20)
-            Text((self.bookMarks[index]).value(forKey: "spot_nm") as! NSString as String)
-                .font(.footnote)
-                .frame(height: 20)
+                .frame(width: 20, height: CGFloat(self.toIntFromBookMarkData(Data: (self.bookMarks[index]).occrrnc_cnt)) * 100.0)
+            Text((self.bookMarks[index]).spot_nm)
                 }
             }
         }
@@ -37,15 +96,8 @@ struct AccidentOccurChart: View {
 }
 }
 
-struct AccidentOccurChart_Previews: PreviewProvider {
-    static var previews: some View {
-        AccidentOccurChart(bookMarks: MarkedPlaceTotalResult_ViewController().bookMarks)
-        }
-}
-
 struct TotalInfo: View {
     var bookMarks:[Detail_info] = []
-    var station: WeatherStation
     
     
     var body: some View {
@@ -55,12 +107,13 @@ struct TotalInfo: View {
                     Image(systemName: "thermometer")
                     Text("발생건수")
                 })
-            SnowfallTab(station: self.station)
+            
+            InjuryPeopleChart(bookMarks: self.bookMarks)
                 .tabItem({
                     Image(systemName: "thermometer")
                     Text("사상자수")
                 })
-            PrecipitationTab(station: self.station)
+            DeadPeopleChart(bookMarks: self.bookMarks)
                 .tabItem({
                     Image(systemName: "thermometer")
                     Text("사망자수")
@@ -71,18 +124,18 @@ struct TotalInfo: View {
 
 struct TotalInfo_Previews: PreviewProvider {
     static var previews: some View {
-        TotalInfo(bookMarks: MarkedPlaceTotalResult_ViewController().bookMarks, station: WeatherInformation()!.stations[0])
+        TotalInfo(bookMarks: MarkedPlaceTotalResult_ViewController().bookMarks)
     }
 }
 
 class MarkedPlaceTotalResult_ViewController: UIViewController {
     var bookMarks:[Detail_info] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let stations = WeatherInformation()
         
-        let swiftUIController = UIHostingController(rootView: TotalInfo(bookMarks: MarkedPlaceTotalResult_ViewController().bookMarks, station: (stations?.stations[0])!))
+        let swiftUIController = UIHostingController(rootView: TotalInfo(bookMarks: self.bookMarks))
         
         addChild(swiftUIController)
         swiftUIController.view.translatesAutoresizingMaskIntoConstraints = false
