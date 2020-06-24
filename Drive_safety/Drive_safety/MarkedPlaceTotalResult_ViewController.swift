@@ -99,7 +99,6 @@ struct AccidentOccurChart: View {
 struct TotalInfo: View {
     var bookMarks:[Detail_info] = []
     
-    
     var body: some View {
         TabView {
             AccidentOccurChart(bookMarks: self.bookMarks)

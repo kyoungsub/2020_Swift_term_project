@@ -19,6 +19,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         transcribeButton.isEnabled = false
         stopButton.isEnabled = true
         try! startSession()
+        
+        let explore = ExplodeView(frame: CGRect(x: (transcribeButton.imageView?.center.x)!, y: (transcribeButton.imageView?.center.y)!, width: 10, height: 10))
+        transcribeButton.imageView?.superview?.addSubview(explore)
+        transcribeButton.imageView?.superview?.sendSubviewToBack(_: explore)
     }
     @IBAction func stopTranscribing(_ sender: Any) {
         if audioEngine.isRunning {
@@ -26,6 +30,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             speechRecognitionRequest?.endAudio()
             transcribeButton.isEnabled = true
             stopButton.isEnabled = false
+            
+            let explore = ExplodeView(frame: CGRect(x: (stopButton.imageView?.center.x)!, y: (stopButton.imageView?.center.y)!, width: 10, height: 10))
+            stopButton.imageView?.superview?.addSubview(explore)
+            stopButton.imageView?.superview?.sendSubviewToBack(_: explore)
         }
         
         switch (self.textView.text) {

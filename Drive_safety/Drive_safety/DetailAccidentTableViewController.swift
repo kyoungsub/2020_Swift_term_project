@@ -14,6 +14,7 @@ class DetailAccidentTableViewController: UITableViewController {
     
     var unique_check:Bool = true
     
+    @IBOutlet weak var Add_BookMarkButton: UIBarButtonItem!
     @IBAction func Add_BookMark(_ sender: Any) {
         let userDefaults = UserDefaults.standard
         let di = Detail_info(spot_nm: post[0], occrrnc_cnt: post[1], caslt_cnt: post[2], dth_dnv_cnt: post[3], se_dnv_cnt: post[4], sl_dnv_cnt: post[5], wnd_dnv_cnt: post[6])
