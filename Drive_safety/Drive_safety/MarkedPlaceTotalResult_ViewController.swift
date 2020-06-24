@@ -103,18 +103,18 @@ struct TotalInfo: View {
         TabView {
             AccidentOccurChart(bookMarks: self.bookMarks)
                 .tabItem({
-                    Image(systemName: "thermometer")
+                    Image(systemName: "car")
                     Text("발생건수")
                 })
             
             InjuryPeopleChart(bookMarks: self.bookMarks)
                 .tabItem({
-                    Image(systemName: "thermometer")
+                    Image(systemName: "bandage")
                     Text("사상자수")
                 })
             DeadPeopleChart(bookMarks: self.bookMarks)
                 .tabItem({
-                    Image(systemName: "thermometer")
+                    Image(systemName: "heart.slash")
                     Text("사망자수")
                 })
         }.frame(width: 410, height: 700)

@@ -42,8 +42,7 @@
 		A1FBB2C624A269E7009E8A0E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FBB2B724A269E7009E8A0E /* ContentView.swift */; };
 		A1FBB2C724A269E7009E8A0E /* StationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FBB2B824A269E7009E8A0E /* StationHeader.swift */; };
 		A1FBB2CB24A26F31009E8A0E /* MarkedPlaceTotalResult_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FBB2CA24A26F31009E8A0E /* MarkedPlaceTotalResult_ViewController.swift */; };
-		A1FBB2D224A32A3D009E8A0E /* ExplodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FBB2D124A32A3D009E8A0E /* ExplodeView.swift */; };
-		A1FBB2D424A34B75009E8A0E /* StardustView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FBB2D324A34B75009E8A0E /* StardustView.swift */; };
+		A1FBB2D624A355EC009E8A0E /* ExplodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FBB2D524A355EC009E8A0E /* ExplodeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,8 +83,7 @@
 		A1FBB2B724A269E7009E8A0E /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A1FBB2B824A269E7009E8A0E /* StationHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationHeader.swift; sourceTree = "<group>"; };
 		A1FBB2CA24A26F31009E8A0E /* MarkedPlaceTotalResult_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkedPlaceTotalResult_ViewController.swift; sourceTree = "<group>"; };
-		A1FBB2D124A32A3D009E8A0E /* ExplodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExplodeView.swift; path = "../../../../Downloads/Anagrams Part3 Finished/Anagrams/ExplodeView.swift"; sourceTree = "<group>"; };
-		A1FBB2D324A34B75009E8A0E /* StardustView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StardustView.swift; path = "../../../../Downloads/Anagrams Part3 Finished/Anagrams/StardustView.swift"; sourceTree = "<group>"; };
+		A1FBB2D524A355EC009E8A0E /* ExplodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplodeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +116,7 @@
 		3400D197248CE6A9009B2654 /* Drive_safety */ = {
 			isa = PBXGroup;
 			children = (
+				A1FBB2D524A355EC009E8A0E /* ExplodeView.swift */,
 				A1FBB2A824A269E6009E8A0E /* Charts */,
 				A1FBB2B724A269E7009E8A0E /* ContentView.swift */,
 				A1FBB2B124A269E6009E8A0E /* DoubleExtension.swift */,
@@ -147,8 +146,6 @@
 				346E5567249B99D600F5E98C /* BookMarkTableViewController.swift */,
 				346C2961249C6AE100D86B80 /* DetailBookmarkTableViewController.swift */,
 				A1FBB2CA24A26F31009E8A0E /* MarkedPlaceTotalResult_ViewController.swift */,
-				A1FBB2D124A32A3D009E8A0E /* ExplodeView.swift */,
-				A1FBB2D324A34B75009E8A0E /* StardustView.swift */,
 			);
 			path = Drive_safety;
 			sourceTree = "<group>";
@@ -276,12 +273,11 @@
 				A1FBB2C024A269E7009E8A0E /* TemperatureTab.swift in Sources */,
 				A1FBB2BA24A269E7009E8A0E /* TemperatureChart.swift in Sources */,
 				A1FBB2B924A269E7009E8A0E /* MapView.swift in Sources */,
-				A1FBB2D424A34B75009E8A0E /* StardustView.swift in Sources */,
 				346E5562249B283500F5E98C /* MapViewController.swift in Sources */,
 				3400D1B92490DFFD009B2654 /* siDoCode.swift in Sources */,
 				A1FBB2BF24A269E7009E8A0E /* SnowfallTab.swift in Sources */,
 				346E5568249B99D600F5E98C /* BookMarkTableViewController.swift in Sources */,
-				A1FBB2D224A32A3D009E8A0E /* ExplodeView.swift in Sources */,
+				A1FBB2D624A355EC009E8A0E /* ExplodeView.swift in Sources */,
 				A1FBB2C424A269E7009E8A0E /* DayInfo.swift in Sources */,
 				3400D1BB24923416009B2654 /* siDoTableViewController.swift in Sources */,
 				A1FBB2BD24A269E7009E8A0E /* StationInfo.swift in Sources */,
